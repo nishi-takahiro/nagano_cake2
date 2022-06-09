@@ -1,16 +1,111 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>NaganoCake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class = "container">
+          
+          <!-- ブランドロゴ -->
+          <div class="row justify-content-start navbar-left">
+          <a class ="text" ><%= link_to image_tag('no_image.jpg'),root_path %></a>
+          </div>
+          
+          <div class="row justify-content-end list-unstyled text-light">
+            
+              <ul class = "navbar-nav navbar-right text-light">
+               <!-- カスタマーがログインしているとき -->
+               <% if customer_signed_in? %>
+               <li>
+                 <%= link_to public_customers_show_path, class: 'nav-link text-light' do %>
+                 <i class = "fas fa-home"></i>マイページ
+                 <% end %>
+               </li>
+               <li>
+                  <%= link_to items_path, class:'nav-link text-light' do %>
+                 <i class = "fas fa- fa-clipboard"></i>商品一覧
+                 <% end %> 
+               </li>
+               <li>
+                  <%= link_to public_cart_items_path, class:'nav-link text-light' do %>
+                  <i class = "fas fa-cart-arrow-down"></i>カート
+                  <% end %>
+               </li>
+               <li>
+                  <%= link_to destroy_customer_session_path, method: :delete, class:'nav-link text-light' do %>
+                  <i class = "fas fa-sign-out-alt"></i>ログアウト
+                  <% end %>
+               </li>
+               <!--管理者がログインをしているとき -->
+               <% elsif admin_signed_in? %>
+               <li>
+                  <%= link_to items_path, class:'nav-link text-light' do %>
+                 <i class = "fas fa-fa-clipboard"></i>商品一覧
+                 <% end %> 
+               </li>
+               <li>
+                  <%= link_to admin_customers_path, class:'nav-link text-light' do %>
+                  <i class = "fas fa-faddress-book"></i>会員一覧
+                  <% end %>
+               </li>
+               <li>
+                  <%= link_to admin_path, class:'nav-link text-light ' do %>
+                  <i class = "fas fa-id-card"></i>注文履歴一覧
+                  <% end %>
+               </li>
+               <li>
+                 <%= link_to admin_fenre_path, class:'nav-link text-light' do %>
+                 <i class ="fas fa-file-alt"></i>ジャンル一覧
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to destroy_admin_session_path, method: :delete, class:'nav-link text-light' do %>
+                 <i class = "fas fa-sign-out-alt"></i>ログアウト
+                  <% end %>
+               </li>
+               <% else %>
+               <!-- ログインしていないとき -->
+               <li>
+                 <%= link_to about_path, class:'nav-link text-light' do %>
+                 <i class = "fas fa-link "></i>About
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to items_path, class:'nav-link text-light' do %>
+                 <i class = "fas fa- fa-clipboard"></i>商品一覧
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to new_customer_registration_path, class:"nav-link text-light" do %>
+                 <i class = "fas fa-user-plus"></i>新規登録
+                 <% end %>
+               </li>
+               <li>
+                 <%= link_to new_customer_session_path, class:"nav-link text-light" do %>
+                 <i class = "fas fa-sign-in-alt"></i>ログイン
+                 <% end %>
+               </li>
+               <% end %>  
+            
+              </ul>
+          </div>
+        </div>
+        
+      </nav>
+    </header>
+    
+    
+    <main></main>
+    <footer></footer>
     <%= yield %>
   </body>
 </html>
