@@ -9,7 +9,7 @@ class Customer < ApplicationRecord
   validates :first_name_kana, presence: true
   validates :last_name_kana, presence: true
   validates :postal_code, presence: true
-  validates :addresses, presence: true
+  validates :address, presence: true
   validates :telephone_number, presence: true
   
          
