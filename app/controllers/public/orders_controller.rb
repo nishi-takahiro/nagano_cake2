@@ -1,4 +1,4 @@
-class Public::OrdsController < ApplicationController
+class Public::OrdersController < ApplicationController
   def new
   end
 
