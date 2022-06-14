@@ -19,6 +19,17 @@ class Public::CustomersController < ApplicationController
     end
   end
   
+  def unsubscribe
+  end
+  
+  def withdraw
+    @customer = Customer.find(current_customer[:id])
+    # is_deletedカラムをtrueに変更することで削除フラグを
+    @customer.update(is_deleted: true)
+    reset_session
+    redirect_to root_path
+  end
+  
   private
   
   def customer_params
