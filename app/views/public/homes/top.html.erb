@@ -1,36 +1,57 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
 
 <div class = "container">
     <div class = "row">
         
-        <div class = "col-md-3 col-lg-3">
-            
+        <div class = "col-md-2 col-lg-2">
+            <h1>Public::Homes#top</h1>
+            <p>Find me in app/views/public/homes/top.html.erb</p>
+
         </div>
         
-        <div = "row">
-          <div class ="col-mg-10 col-lg-7 text-align-center" >
+          <div class ="col-mg-9 col-lg-9 text-align-center m-4" >
               
               <!--welcome-->
                <div class="card  text-center text-align-center" >
-                 <div class="card-img" >
+                 <div class="card-img justify-content-center d-flex align-items-center  text-center" >
                     <%= image_tag 'cake.jpg', size: '750x500' %>
-                     <div class="card-img-overlay  text-align-center text-center">
-                       <p class="text font-weight-bold cover-text text-center ">
+                     <div class="card-img-overlay d-flex align-items-center justify-content-center  text-center">
+                       <p class="text font-weight-bold align-items-center cover-text text-center bg-white bg-opacity-50" >
                          ようこそ、ながのCAKEへ！<br>このサイトは、ケーキ販売のECサイトになります。<br>会員でない方も商品の閲覧は出来ますが、<br>購入には会員登録が必要になります。
                        </p>
                     </div>
                   </div>
                </div>
                
+           
+               <!--商品-->
+               <h3 class = "row m-3">新着商品 </h3>
+               <div class ="row">
+                   <div class = "col-mg-3 col-lg-3">
+                     <%= image_tag 'cake.jpg', size: '200x150' %>
+                     <p>商品名</p>
+                     <p>￥0,000</p>
+                   </div>
+                   <div class = "col-mg-3 col-lg-3">
+                     <%= image_tag 'cake.jpg', size: '200x150' %>
+                     <p>商品名</p>
+                     <p>￥0,000</p>
+                   </div>
+                   <div class = "col-mg-3 col-lg-3">
+                     <%= image_tag 'cake.jpg', size: '200x150' %>
+                     <p>商品名</p>
+                     <p>￥0,000</p>
+                   </div>
+                   <div class = "col-mg-3 col-lg-3">
+                     <%= image_tag 'cake.jpg', size: '200x150' %>
+                     <p>商品名</p>
+                     <p>￥0,000</p>
+                   </div>
+               </div>
                
-                
-          </div>
-        </div>
-       
-        
-       
-        
-
+               <div class = "row float-right">
+                   <%= link_to '全ての商品を見る＞', items_path %>
+               </div>
+           </div>     
+         
     </div>
 </div>
