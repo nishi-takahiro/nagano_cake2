@@ -32,7 +32,10 @@ Rails.application.routes.draw do
     
     
   end
-
+  namespace :admin do
+    get '/' => 'homes#top'
+  end
+  
   namespace :admin do
     resources :order_details, only: [:update]
     resources :orders, only: [:show, :update]
@@ -41,7 +44,5 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
   
-  namespace :admin do
-    get 'homes/top'
-  end
+ 
 end
