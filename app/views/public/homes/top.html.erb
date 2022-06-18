@@ -2,10 +2,9 @@
 <div class = "container">
     <div class = "row">
         
+        <!--ジャンル検索-->
         <div class = "col-md-2 col-lg-2">
-            <h1>Public::Homes#top</h1>
-            <p>Find me in app/views/public/homes/top.html.erb</p>
-
+           
         </div>
         
           <div class ="col-mg-9 col-lg-9 text-align-center m-4" >
@@ -22,10 +21,10 @@
                   </div>
                </div>
                
-           
                <!--商品-->
-               <h3 class = "row m-3">新着商品 </h3>
                <div class ="row">
+                   <h3 class = "row m-3">新着商品 </h3>
+                   <div class = "row">
                    <div class = "col-mg-3 col-lg-3">
                      <%= image_tag 'cake.jpg', size: '200x150' %>
                      <p>商品名</p>
@@ -46,11 +45,14 @@
                      <p>商品名</p>
                      <p>￥0,000</p>
                    </div>
+                   </div>
+                   
+                  
                </div>
-               
-               <div class = "row float-right">
-                   <%= link_to '全ての商品を見る＞', items_path %>
-               </div>
+                 <div class = "row text-right float-right pull-right test-box">
+                      <%= link_to '全ての商品を見る＞', items_path %>
+                </div>
+              
            </div>     
          
     </div>
