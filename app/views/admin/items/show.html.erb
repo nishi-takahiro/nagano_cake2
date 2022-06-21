@@ -1,2 +1,43 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<div class ="container">
+    <div class = "row">
+                
+        <div class = "col-sm-12 col-mg-11 col-lg-12 px-sm-o">
+            <h5 class = "col-lg-3 m-5">商品詳細</h5>
+                
+            <div class = "row">
+                <div class = "col-sm-12 col-mg-5 col-lg-5">
+                    <% if @item.image.attached? %>
+                    <%= image_tag  @item.image, size: "350x250" %>
+                    <% else %>
+                    <%= image_tag "no_image_default.png",size: "350x250" %>
+                    <% end %>
+                </div>
+                
+                <div class = "col-sm-12 col-mg-5 col-lg-7">
+                    <div class = "row"> 
+                      <div class = "col-sm-3 col-mg-3 col-lg-3">商品名</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.name %></div>
+                    </div>
+                    <div class = "row">
+                      <div class = "col-sm-3 col-mg-3 col-lg-3">商品説明</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.introduction %></div>
+                    </div> 
+                    <div class = "row">
+                      <div class = "col-sm-3 col-mg-3 col-lg-3">ジャンル</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.genre_id %></div>
+                    </div> 
+                    <div class = "row">
+                      <div class = "col-sm-3 col-mg-3 col-lg-3">税込み価格</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.price %></div>
+                    </div>  
+                    <div class = "row">       
+                      <div class = "col-sm-3 col-mg-3 col-lg-3">販売ステータス</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.is_active %></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+    </div>
+
+</div>

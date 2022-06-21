@@ -1,5 +1,3 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
 
 <div class = "container">
     <div class = "row">
@@ -7,7 +5,7 @@
             
           <h4 class = "col-lg-3 m-5 font-weight-bold">商品新規登録</h4>
          
-          <%= form_with model: @item, url: admin_items_path(:id) do |f| %>
+          <%= form_with model: @item, url: admin_items_path do |f| %>
           <!--画像投稿-->
           <div class ="row">
               <div class = "col-lg-2">商品画像</div>
@@ -52,15 +50,17 @@
                   </div>
               </div>
           </div>
+          
+          <!-- ボタン販売ステータス-->
           <div class = "row">
               <div class = "col-lg-2">販売ステータス</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
-                      <%= f.radio_button :is_active, "sale" %>
-                      <%= f.label :is_active, "販売中" %>
+                      <%= f.radio_button :is_active, Item.is_actives.key(0) %>
+                      <%= f.label :is_active, Item.is_actives_i18n[:sale] %>
                       
-                      <%= f.radio_button :is_active, "stop_sale" %>
-                      <%= f.label :is_active, "販売停止中" %>
+                      <%= f.radio_button :is_active, Item.is_actives.key(1) %>
+                      <%= f.label :is_active, Item.is_actives_i18n[:stop_sale] %>
                   </div>
               </div>
           </div>
