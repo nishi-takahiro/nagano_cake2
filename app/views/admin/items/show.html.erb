@@ -2,7 +2,7 @@
     <div class = "row">
                 
         <div class = "col-sm-12 col-mg-11 col-lg-12 px-sm-o">
-            <h5 class = "col-lg-3 m-5">商品詳細</h5>
+            <h5 class = "col-lg-3 m-5 font-weight-bold">商品詳細</h5>
                 
             <div class = "row">
                 <div class = "col-sm-12 col-mg-5 col-lg-5">
@@ -14,26 +14,37 @@
                 </div>
                 
                 <div class = "col-sm-12 col-mg-5 col-lg-7">
-                    <div class = "row"> 
-                      <div class = "col-sm-3 col-mg-3 col-lg-3">商品名</div>
+                    <div class = "row m-2"> 
+                      <div class = "col-sm-3 col-mg-3 col-lg-3 font-weight-bold">商品名</div>
                       <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.name %></div>
                     </div>
-                    <div class = "row">
-                      <div class = "col-sm-3 col-mg-3 col-lg-3">商品説明</div>
+                    <div class = "row m-2">
+                      <div class = "col-sm-3 col-mg-3 col-lg-3 font-weight-bold">商品説明</div>
                       <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.introduction %></div>
                     </div> 
-                    <div class = "row">
-                      <div class = "col-sm-3 col-mg-3 col-lg-3">ジャンル</div>
+                    <div class = "row m-2">
+                      <div class = "col-sm-3 col-mg-3 col-lg-3 font-weight-bold">ジャンル</div>
                       <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.name %></div>
                     </div> 
-                    <div class = "row">
-                      <div class = "col-sm-3 col-mg-3 col-lg-3">税込み価格</div>
-                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.price %></div>
+                    <div class = "row m-2">
+                      <div class = "col-sm-3 col-mg-3 col-lg-3 font-weight-bold">税込み価格<br>(税抜き価格)</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.price %>円</div>
                     </div>  
-                    <div class = "row">       
-                      <div class = "col-sm-3 col-mg-3 col-lg-3">販売ステータス</div>
-                      <div class = "col-sm-9 col-mg-7 col-lg-3"><%= @item.is_active %></div>
+                    <div class = "row m-2">       
+                      <div class = "col-sm-3 col-mg-3 col-lg-3 font-weight-bold">販売ステータス</div>
+                      <div class = "col-sm-9 col-mg-7 col-lg-3">
+                        <% if @item.is_active? %>
+                        <%= "販売中" %>
+                        <% else %>
+                        <%= "販売停止中" %>
+                        <% end %>
+                        </div>
                     </div>
+                </div>
+                <div class = "row m-5 px-sm-0 text-center mx-auto">
+                  <div class ="col-sm-12 col-mg-12 col-lg-12 px-sm-0 text-center">
+                      <%= link_to "編集する", edit_admin_item_path(@item), style: "width:150", class: " btn btn-success text-center"%>
+                  </div>
                 </div>
             </div>
         </div>
