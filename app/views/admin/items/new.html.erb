@@ -1,14 +1,13 @@
-
 <div class = "container">
     <div class = "row">
-        <div class = "col-sm-12 col-mg-11 col-lg-10 px-sm-0">
+        <div class = "col-sm-12 col-mg-11 col-lg-10 px-sm-0 mx-auto">
             
           <h4 class = "col-lg-3 m-5 font-weight-bold">商品新規登録</h4>
          
           <%= form_with model: @item, url: admin_items_path do |f| %>
           <!--画像投稿-->
           <div class ="row">
-              <div class = "col-lg-2">商品画像</div>
+              <div class = "col-lg-2 font-weight-bold">商品画像</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
                        <%= f.file_field :image, accept: "image/*" %>
@@ -17,7 +16,7 @@
           </div>
           
           <div class = "row">
-              <div class = "col-lg-2">商品名</div>
+              <div class = "col-lg-2 font-weight-bold">商品名</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
                       <%= f.text_field :name, size: 40, autofocus: true, autocomlete: "name" %>
@@ -25,7 +24,7 @@
               </div>
           </div>
           <div class = "row">
-              <div class = "col-lg-2">商品説明</div>
+              <div class = "col-lg-2 font-weight-bold">商品説明</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
                       <%= f.text_area :introduction, size: "40x10", autofocus: true, autocomlete: "introduction" %>
@@ -33,7 +32,7 @@
               </div>
           </div>
           <div class = "row">
-              <div class = "col-lg-2">ジャンル</div>
+              <div class = "col-lg-2 font-weight-bold">ジャンル</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
                       
@@ -43,17 +42,17 @@
               </div>
           </div>
           <div class = "row">
-              <div class = "col-lg-2">税抜き価格</div>
+              <div class = "col-lg-2 font-weight-bold">税抜き価格</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
-                      <%= f.text_field :price, size: 40, autofocus: true, autocomlete: "introduction" %>円
+                      <%= f.text_field :price, size: 40, autofocus: true, autocomlete: "price" %>円
                   </div>
               </div>
           </div>
           
           <!-- ボタン販売ステータス-->
           <div class = "row">
-              <div class = "col-lg-2">販売ステータス</div>
+              <div class = "col-lg-2 font-weight-bold">販売ステータス</div>
               <div class = "col-lg-5">
                   <div class = "form-group">
                       <%= f.radio_button :is_active, :true %>
@@ -66,7 +65,7 @@
           </div>
           
           <div class = "row">
-              <div class = "col-lg-10">
+              <div class = "col-lg-10 mx-auto">
                   <%= f.submit "新規登録",  style: "width:150",class: "btn btn-success" %> 
               </div>
           </div>

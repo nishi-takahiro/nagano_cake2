@@ -1,2 +1,65 @@
 <h1>Admin::Items#edit</h1>
 <p>Find me in app/views/admin/items/edit.html.erb</p>
+
+<div class = "container">
+    <div class = "row">
+        
+        <div class ="col-sm-12 col-mg-11 col-lg-10 px-sm-0">
+            <h5 class = "col-lg-3 m-5 font-weight-bold">商品編集</h5>
+            
+        <%= form_with model: @item, url: admin_items_path do |f| %>
+        <div class = "row">
+            <div class = "col-lg-2 font-weight-bold">商品画像</div>
+            <div class = "col-lg-5">
+                <div class = "form-group">
+                    <%= f.file_field :image, accept: "image/*" %>
+                </div>
+            </div>
+        </div>
+        
+        <div class = "row">
+            <div class = "col-lg-2 font-weight-bold">商品名</div>
+            <div class = "col-lg-5">
+                <div class = "form-group">
+                    <%= f.text_field :name, size: 60, autofocus: true, autocomlete: "name" %>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-lg-2 font-weight-bold">商品説明</div>
+            <div class = "col-lg-5">
+                <div class = "form-group">
+                    <%= f.text_area :introduction, size: "62×80", autofocus: true, autocomlete: "introduction" %>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-lg-2 font-weight-bold">ジャンル</div>
+            <div class = "col-lg-5">
+                <div class = "form-group">
+                    <%= f.text_field :name, size: 60, autofocus: true, autocomlete: "name" %>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-lg-2 font-weight-bold">税抜き価格</div>
+            <div class = "col-lg-5">
+                <div class = "form-group">
+                    <%= f.text_field :price, size: 60, autofocus: true, autocomlete: "price" %>
+                </div>
+            </div>
+        </div>
+        <div class = "row">
+            <div class = "col-lg-2 font-weight-bold">販売ステータス</div>
+            <div class = "col-lg-5">
+                <div class = "form-group">
+                    <%= f.text_field :name, size: 60, autofocus: true, autocomlete: "name" %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+            
+        </div>
+        
+    </div>
+</div>

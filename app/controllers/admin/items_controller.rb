@@ -6,6 +6,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def index
+    @item = Item.new
   end
 
   def show
@@ -13,6 +14,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def edit
+   @item = Item.find(params[:id])
   end
   
   def create
