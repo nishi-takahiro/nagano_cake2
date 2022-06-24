@@ -10,10 +10,18 @@ class Admin::CustomersController < ApplicationController
   def edit
     @customer = Customer.find(params[:id])
   end
+  
+  def update
+   @customer = Customer.find(params[:id])
+   if @customer.update(customer_params)
+     redirect_to admin_customer_path(@customer.id)
+   else
+     render "edit"
+  end
 end
+  private
 
-private
-
-def customer_params
-  params.require(:customer).permit(:name, :introduction, :price, :image, :is_active, :genre_id)
+  def customer_params
+    params.require(:customer).permit(:name, :introduction, :price, :image, :is_active, :genre_id)
+  end
 end
