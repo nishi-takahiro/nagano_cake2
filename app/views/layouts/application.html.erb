@@ -20,11 +20,14 @@
           <a class ="text" ><%= link_to image_tag('no_image.jpg'),root_path %></a>
           </div>
           
+         
           <div class="row justify-content-end list-unstyled text-light">
             
+               <% if customer_signed_in? %>
+               <div class = "text-light">ようこそ、<%= current_customer.first_name %>さん！</div>
               <ul class = "navbar-nav navbar-right text-light">
                <!-- カスタマーがログインしているとき -->
-               <% if customer_signed_in? %>
+               
                <li>
                  <%= link_to public_customers_my_page_path, class: 'nav-link text-light' do %>
                  <i class = "fas fa-home"></i>マイページ

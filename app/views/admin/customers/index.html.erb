@@ -26,11 +26,19 @@
                             <%= customer.first_name %><%= customer.last_name %></td>
                             <% end %>
                         <td><%= customer.email %></td>
-                        <td class = "text-success"><%= customer.is_active %></td>
+                        <td class = "text-success">
+                            <% if customer.is_active? %>
+                            <%= "有効" %>
+                            <% else %>
+                            <%= "無効" %>
+                            <% end %>
+                        </td>
                     </tr>
                     <% end %>
                 </tbody>
             </table>
+            
+            <div class = "m-4"><%= paginate @customer %></div>
         </div>
     </div>
 </div>
