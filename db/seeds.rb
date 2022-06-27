@@ -32,4 +32,29 @@ Genre.create!(name: '焼き菓子')
 Genre.create!(name: 'キャンディ')
 
 #アイテム
-Item.create!(   genre_id: '1', name: 'イチゴのショートケーキ', introduction: 'イチゴのショートケーキ、イチゴのショートケーキ、イチゴのショートケーキ、イチゴのショートケーキ、イチゴのショートケーキ', price: '560', image_id: open("./app/assets/images/test (1).jpg"),   )
+item = Item.create!( genre_id: 1, name: 'ウェディングケーキ', introduction: 'グループでのパーティーなどにおすすめです', price: '10000',)
+item.image.attach(io: open("app/assets/images/cake.jpg"),filename: 'cake.jpg')
+
+item = Item.create!( genre_id: 1, name: 'イチゴのショートケーキ', introduction: 'イチゴのショートケーキ、イチゴのショートケーキ、イチゴのショートケーキ、イチゴのショートケーキ、イチゴのショートケーキ', price: '560',)
+item.image.attach(io: open("app/assets/images/test.jpg"),filename: 'test.jpg')
+
+item = Item.create!( genre_id: 2, name: 'プリン', introduction: 'プリンプリンプリンプリンプリンプリンプリンプリン', price: '780',)
+item.image.attach(io: open("app/assets/images/test1.jpg"),filename: 'test1.jpg')
+
+item = Item.create!( genre_id: 3, name: 'イチゴのマカロン', introduction: 'イチゴのマカロン、イチゴのマカロン、イチゴのマカロン、イチゴのマカロン、イチゴのマカロン、', price: '980',)
+item.image.attach(io: open("app/assets/images/test_1.jpg"),filename: 'test_1.jpg')
+
+item = Item.create!( genre_id: 3, name: '抹茶のマカロン', introduction: '抹茶のマカロン、抹茶のマカロン、抹茶のマカロン、抹茶のマカロン、抹茶のマカロン、', price: '1200',)
+item.image.attach(io: open("app/assets/images/test_1.jpg"),filename: 'test_1.jpg')
+
+item = Item.create!( genre_id: 4, name: 'コーラのキャンディ', introduction: 'コーラのキャンディ、コーラのキャンディ、コーラのキャンディ、コーラのキャンディ、コーラのキャンディ、', price: '1500',)
+item.image.attach(io: open("app/assets/images/test3.jpg"),filename: 'test3.jpg')
+
+item = Item.create!( genre_id: 4, name: 'イチゴのキャンディ', introduction: 'イチゴのキャンディ、イチゴのキャンディ、イチゴのキャンディ、イチゴのキャンディ、イチゴのキャンディ、', price: '570',)
+item.image.attach(io: open("app/assets/images/test3.jpg"),filename: 'test3.jpg')
+
+item = Item.create!( genre_id: 3, name: 'ランダムマカロン', introduction: 'ランダムマカロン、ランダムマカロン、ランダムマカロン、ランダムマカロン、ランダムマカロン、', price: '5600',)
+item.image.attach(io: open("app/assets/images/test_1.jpg"),filename: 'test_1.jpg')
+
+item = Item.create!( genre_id: 4, name: 'キャンディの詰め合わせ', introduction: 'キャンディの詰め合わせ、キャンディの詰め合わせ、キャンディの詰め合わせ、キャンディの詰め合わせ、キャンディの詰め合わせ、', price: '6000',)
+item.image.attach(io: open("app/assets/images/test3.jpg"),filename: 'test3.jpg')
