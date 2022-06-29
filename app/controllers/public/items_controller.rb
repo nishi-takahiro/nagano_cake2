@@ -8,12 +8,7 @@ class Public::ItemsController < ApplicationController
     @item = Item.page(params[:page]).per(8)
   end
   
-  def create
-    @item = Item.new(item_params)
-    @item.item_id = current_user.id
-    @item.save
-    redirect_to public_item_path
-  end
+
   
   private
   

@@ -4,7 +4,7 @@
         <div class = "col-sm-12 col-mg-3 col-lg-3">
         </div>
         
-       
+        
         <div class = "col-sm-12 col-mg-4 col-lg-3">
             <% if @item.image.attached? %>
             <%= image_tag  @item.image, size: "250x150" %>
@@ -22,7 +22,7 @@
             <h5>￥<%= @item.add_tax_price.to_s(:delimited) %>(税込)</h5><br>
              
              <!--カートアイテム個数-->
-             <%= form_with model: @cart_item, url: public_cart_items_path, method: :get do |f| %>
+             <%= form_with model: @cart_item, url: public_cart_items_path, method: :post, local: true do |f| %>
              <%= f.hidden_field :item_id, :value => @item.id %>
              <%= f.select :amount, *[1..20] %>
              <%= f.submit "カートに入れる", class: "btn btn-success" %>

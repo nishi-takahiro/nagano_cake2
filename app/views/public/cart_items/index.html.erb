@@ -2,7 +2,7 @@
 <p>Find me in app/views/public/cart_items/index.html.erb</p>
 
 <div class = "container">
-    <div class = "row">
+    <div class = "row m-3">
             <div class="col-md-3 col-lg-3">ショッピングカート</div>
             <div class="col-md-3 col-lg-3 col-md-offset-5 col-lg-offset-4 text-right"> 
              <button class="btn btn-danger text-right">カートを空にする</button></div>
@@ -19,15 +19,27 @@
                     <th></th>
                 </tr>
             </thead>
+            
             <tbody>
+                <% @cart_items.each do |cart_item| %>
                 <tr>
+                    
+                    <td><% if cart_item.item.image.attached? %>
+                          <%= image_tag cart_item.item.image, size: "150x100" %>
+                         <% else %>
+                          <%= image_tag 'no_image_default.png', size: "150x100" %>
+                         <% end %>
+                        <%= cart_item.item.name %></td>
+                    <td><%= cart_item.item.price %></td>
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                    <td></td>
+                    
                 </tr>
+                <% end %>
             </tbody>
+            
         </table>
     </div>
+    
 </div>
