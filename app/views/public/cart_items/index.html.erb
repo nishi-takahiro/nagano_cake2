@@ -30,9 +30,9 @@
                           <%= image_tag 'no_image_default.png', size: "150x100" %>
                          <% end %>
                         <%= cart_item.item.name %></td>
-                    <td><%= cart_item.item.price %></td>
-                    <td></td>
-                    <td></td>
+                    <td> <%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+                    <td> <%= cart_item.amount %></td>
+                    <td> <%= (cart_item.subtotal ).to_s(:delimited) %></td>
                     <td></td>
                     
                 </tr>
