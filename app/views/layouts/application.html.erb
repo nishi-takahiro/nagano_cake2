@@ -24,10 +24,12 @@
           <div class="row justify-content-end list-unstyled text-light text-center">
             
                <% if customer_signed_in? %>
-               <div class = "text-center">ようこそ、<%= current_customer.first_name %>さん！</div>
+              
               <ul class = "navbar-nav navbar-right text-light">
                <!-- カスタマーがログインしているとき -->
-               
+               <li>
+                   ようこそ、<%= current_customer.first_name %>さん！
+               </li>
                <li>
                  <%= link_to public_customers_my_page_path, class: 'nav-link text-light' do %>
                  <i class = "fas fa-home"></i>マイページ
