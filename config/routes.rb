@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    get '/orders/confirm' => 'orders#confirm'
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
     get 'customers/my_page' => 'customers#show'
