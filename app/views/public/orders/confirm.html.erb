@@ -1,2 +1,79 @@
 <h1>Public::Ords#confirm</h1>
 <p>Find me in app/views/public/ords/confirm.html.erb</p>
+
+<div class = "container">
+    <div class = "row　m-3">
+        <div class = "col-sm-12 col-md-12 col-lg-12">注文情報確認</div>
+    </div>
+    
+    <div class = "row">
+      <div class = "col-sm-12 col-md-8 col-lg-7">
+        <table class = "table table-bordered">
+          <thead>
+              <tr>
+                  <th>商品名</th>
+                  <th>単価(税込み)</th>
+                  <th>数量</th>
+                  <th>小計</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% @cart_items.each do |cart_item| %>
+              <tr>
+                  <td><% if cart_item.item.image.attached? %>
+                        <%= image_tag cart_item.item.image, size: "125x75" %>
+                      <% else %>
+                        <%= image_tag 'no_image_default.png', size: "125x75" %>
+                      <% end %>
+                      <%= cart_item.item.name %>
+                  </td>
+                  <td><%= cart_item.item.add_tax_price.to_s(:delimited) %></td>
+                  <td><%= cart_item.amount %></td>
+                  <td><%= cart_item.subtotal %></td>
+              </tr>
+          </tbody>
+          <% end %>
+          </table>
+      </div>
+        
+        <div class = "col-sm-12 col-md-4 col-lg-5">
+          <table class = "table table-bordered">
+            <thead>
+              <tr>
+                <th>送料</th>
+                <td><%= @order.postage %></td>
+              </tr>
+              <tr>
+                <th>商品合計</th>
+                <td><%= @total.round.to_s(:delimited) %></td>
+              </tr>
+              <tr>
+                <th>請求金額</th>
+                <td><%= @total_all.round.to_s(:delimited) %></td>
+              </tr>
+            </thead>
+          </table>
+       </div>
+    </div>
+    
+    <%= form_with model: @order, url: public_orders_complete_path, method: :get, local:true do |f| %>
+     <div class = "row m-3">
+          <div class = "col-sm-12 col-md-2 col-lg-2  font-weight-bold">支払方法</div>
+          <div class = "col-sm-12 col-md-5 col-lg-4"><%= @order.payment_method_i18n %></div>
+       </div>
+      <div class = "row m-3">
+          <div class = "col-sm-12 col-md-2 col-lg-2  font-weight-bold">お届け先</div>
+          <div class = "col-sm-12 col-md-5 col-lg-4">
+            〒<%= @order.postal_code %>
+            <%= @order.address %><br>
+            <%= @order.name %>
+            </div>
+       </div>
+      <div class = "row">
+         <div class = "col-md-4 center center-block ms-md-lg-auto m-3">
+            <%= f.submit  "注文を確定する",class: "btn btn-success" %>
+        </div>
+      </div>
+      <% end %>
+      
+</div>

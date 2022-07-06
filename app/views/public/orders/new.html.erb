@@ -24,9 +24,9 @@
                 <div class = "col-sm-12 col-md-12 col-lg-12">
                     <%= f.radio_button :address_number, "address_1" %>
                     <%= f.label :address_number, "ご自身の住所" %><br>
-                      〒<%= @order.postal_code %>
-                      <%= @order.address %><br>
-                      <%= @order.first_name %> <%= @order.last_name%>
+                      〒<%= @customer.postal_code %>
+                      <%= @customer.address %><br>
+                      <%= @customer.first_name %> <%= @customer.last_name%>
                 </div>
             </div>
             <!--住所選択-->
@@ -68,7 +68,7 @@
        
         <div class = "row">
         <div class = "col-md-4 center center-block ms-md-auto m-3">
-            <%= link_to "確認画面へ進む", public_orders_confirm_path, class: "btn btn-primary" %>
+            <%= f.submit  "確認画面へ進む" ,class: "btn btn-primary" %>
         </div>
     </div>
         <% end %> 
