@@ -3,17 +3,31 @@ class Public::OrdersController < ApplicationController
     @order = Order.new
     @customer = current_customer
   end
+  
+  def index
+    @orders = current_customer.orders.all
+    # binding.pry
+  end
+
+  def show
+    @order = Order.find(params[:id])
+    @order.postage = 800
+    @order_item = @order.order_details
+    @total = 0
+    # OrderDetail.all.sum(:price)*(:amount)
+  end
  
   def create #購入の確定、Orderに情報を保存
     cart_items = current_customer.cart_items.all #ログインユーザーのカートアイテムを全て取り出す。
-    @order = current_customer.cart_item(order_params) #紐づけされて値を @order にいれる
+    @order = current_customer.orders.new(order_params) #紐づけされて値を @order にいれる
+
     if @order.save
-      cart_items.each do |cart|
-        order_detail = OrderDetails.new
+     cart_items.each do |cart|
+        order_detail = OrderDetail.new
         order_detail.item_id = cart.item_id
         order_detail.order_id = @order.id
-        order_detail.order_amount = cart.amount
-        order_detail.order_price = cart.item.price
+        order_detail.amount = cart.amount
+        order_detail.price = cart.item.price
         order_detail.save
     end
       redirect_to public_orders_complete_path
@@ -26,7 +40,6 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params) # newから渡ってきたデータを @orderにいれる
-    
     @order.postage = 800 #送料
     @cart_items = current_customer.cart_items.all #カートアイテムの情報を取り出すためのもの
     @total = @cart_items.inject(0) { |sum,item| sum + item.sum_tax } #商品の合計をだすための計算
@@ -59,17 +72,13 @@ class Public::OrdersController < ApplicationController
     else
       redirect_to new_public_order_path
     end
-    binding.pry
+    # binding.pry
  end
  
   def complete
   end
 
-  def index
-  end
-
-  def show
-  end
+ 
   
   private
   
