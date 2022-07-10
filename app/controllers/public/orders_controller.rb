@@ -78,8 +78,6 @@ class Public::OrdersController < ApplicationController
   def complete
   end
 
- 
-  
   private
   
   def address_params

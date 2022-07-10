@@ -1,5 +1,19 @@
 <div class = "container">
     <div class = "row">
+        
+    <div class = "row">
+        <div class = "col-sm-12 col-mg-12 col-lg-12">
+            <% if @customer.errors.any? %>
+            <h3><%= @customer.errors.count %>件のエラーが発生しました</h3>
+            <ul>
+            <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+            </ul>
+            <% end %>
+        </div>
+    </div>
+    
         <div class = "col-sm-12 col-mg-11 col-lg-10 px-sm-0">
             
             <h4 class ="col-lg-3 m-4 text-right font-weight-bold">会員情報編集</h4>

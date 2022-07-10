@@ -2,5 +2,5 @@ class OrderDetail < ApplicationRecord
     belongs_to :order
     belongs_to :item
     
-    enum making_status: { 制作不可: 0, 制作待ち: 1, 制作中: 2, 制作完了: 3 }
+    enum making_status: { work_wrong: 0, work_wait: 1, work_middle: 2, work_completion: 3 }
 end

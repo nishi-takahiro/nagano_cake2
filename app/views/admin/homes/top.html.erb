@@ -1,12 +1,35 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
 
 <div class = "container">
     <div class = "row">
         <div class = "col-sm-12 col-mg-11 col-lg-10 px-sm-0">
             <h5 class = "col-lg-3 m-3">注文履歴一覧</h5>
             
-            
+            <table class = "table table-bordered">
+                <thead>
+                    <tr>
+                        <th>購入時</th>
+                        <th>購入者</th>
+                        <th>注文個数</th>
+                        <th>注文ステータス</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @orders.each do |order| %>
+                    <tr>
+                        <th><%=  link_to order.created_at.strftime('%Y/%m/%d %H:%M:%S'), admin_order_path(order) %></th>
+                        <th><%= order.customer.first_name %><%= order.customer.last_name %></th>
+                        <th><% @sum = 0 %>
+                            <% order.order_details.each do |order_detail| %>
+                            <% @sum += order_detail.amount %>
+                            <% end %>
+                            <%= @sum %>
+                            </th>
+                      
+                        <th><%= order.status_i18n %></th>
+                    </tr>
+                    <% end %>
+                </tbody>
+            </table>
             
             
         </div>
