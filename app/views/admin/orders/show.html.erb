@@ -53,9 +53,9 @@
                     <tr>
                        
                         <td><%= order_detail.item.name %></td>
-                        <td><%= order_detail.price %></td>
+                        <td><%= (order_detail.price*1.1).floor %></td>
                         <td><%= order_detail.amount %></td>
-                        <td><%= (order_detail.price)*(order_detail.amount) %></td>
+                        <td><%= (order_detail.price*1.1).floor*(order_detail.amount) %></td>
                         <td><%= form_for order_detail, url: admin_order_detail_path(order_detail) do |f| %>
                             <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
                             <%= f.submit '更新'  ,class: "btn btn-success" %>
@@ -74,7 +74,12 @@
                       
                     <tr>
                         <th>商品合計</th>
-                        <td><%= @order.postage %></td>
+                        <td><% @sum = 0 %>
+                            <% @order_details.each do |order_detail| %>
+                            <% @sum += (order_detail.price*1.1).floor*(order_detail.amount) %>
+                            <% end %>
+                            <%= @sum %>
+                        </td>
                     </tr>
                     <tr>
                         <th>送料</th>
