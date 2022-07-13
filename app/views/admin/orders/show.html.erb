@@ -3,29 +3,29 @@
 <div class = "container">
     
     <div class = "row m-3">
-         <div class = "col-sm-12 col-md-12 col-lg-12"><h3>注文履歴詳細</h3></div>
+         <div class = "col-sm-12 col-md-12 col-lg-12 font-weight-bold"><h3>注文履歴詳細</h3></div>
     </div>
     
-     <div class = "row">
-        <div class = "col-sm-12 col-md-3 col-lg-3">購入者</div>
-　　　　<div class = "col-sm-12 col-md-5 col-lg-5"><%= @order.name %></div>
+     <div class = "row m-2">
+        <div class = "col-sm-12 col-md-3 col-lg-2 font-weight-bold">購入者</div>
+        <div class = "col-sm-12 col-md-7 col-lg-5"><%= @order.name %></div>
     </div>
-     <div class = "row">
-        <div class = "col-sm-12 col-md-3 col-lg-3">注文日</div>
-　　　　<div class = "col-sm-12 col-md-7 col-lg-8"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
+     <div class = "row m-2">
+        <div class = "col-sm-12 col-md-3 col-lg-2 font-weight-bold">注文日</div>
+        <div class = "col-sm-12 col-md-7 col-lg-8"><%= @order.created_at.strftime('%Y/%m/%d') %></div>
     </div>
-     <div class = "row">
-        <div class = "col-sm-12 col-md-3 col-lg-3">配送先</div>
-　　　　<div class = "col-sm-12 col-md-7 col-lg-8">〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></div>
+     <div class = "row m-2">
+        <div class = "col-sm-12 col-md-3 col-lg-2 font-weight-bold">配送先</div>
+        <div class = "col-sm-12 col-md-7 col-lg-8">〒<%= @order.postal_code %> <%= @order.address %><br><%= @order.name %></div>
     </div>
-    <div class = "row">
-        <div class = "col-sm-12 col-md-3 col-lg-3">支払方法</div>
-    　　<div class = "col-sm-12 col-md-7 col-lg-8"><%= @order.payment_method_i18n %></div>
+    <div class = "row m-2">
+        <div class = "col-sm-12 col-md-3 col-lg-2 font-weight-bold">支払方法</div>
+        <div class = "col-sm-12 col-md-7 col-lg-8"><%= @order.payment_method_i18n %></div>
     </div>
-    <div class = "row">
-        <div class = "col-sm-12 col-md-3 col-lg-3">注文ステータス</div>
-    　　<div class = "col-sm-12 col-md-7 col-lg-8"> 
-    　　  <%= form_for @order, url: admin_order_path(@order) do |f| %>
+    <div class = "row m-2">
+        <div class = "col-sm-12 col-md-3 col-lg-2 font-weight-bold">注文ステータス</div>
+        <div class = "col-sm-12 col-md-7 col-lg-8"> 
+          <%= form_for @order, url: admin_order_path(@order) do |f| %>
           <%= f.select :status, Order.statuses_i18n.invert %>
           <%= f.submit '更新'  ,class: "btn btn-success" %>
           <% end %>

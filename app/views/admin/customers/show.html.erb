@@ -43,12 +43,12 @@
               <div class = "row m-3">
                 <div class = "col-sm-4 col-mg-4 col-lg-3">会員ステータス</div>
                  <div class = "col-sm-8 col-mg-6 col-lg-6 text-success">
-                     <% if @customer.is_active %>
-                     <%= "有効" %>
-                     <% else %>
+                     <% if @customer.is_deleted %>
                      <div style = "color:#808080">
                      <%= "退会" %>
                      </div>
+                     <% else %>
+                     <%= "有効" %>
                      <% end %>
                  </div>
             </div>

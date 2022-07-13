@@ -27,12 +27,12 @@
                             <% end %>
                         <td><%= customer.email %></td>
                         <td class = "text-success">
-                            <% if customer.is_active? %>
-                            <%= "有効" %>
-                            <% else %>
+                            <% if customer.is_deleted %>
                             <div style = "color:#808080">
                             <%= "退会" %>
                             </div>
+                            <% else %>
+                            <%= "有効" %>
                             <% end %>
                         </td>
                     </tr>

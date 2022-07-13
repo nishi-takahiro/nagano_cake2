@@ -11,12 +11,12 @@ ja:
    status:
      waiting_payment: "入金待ち"
      payment_confirmation: "入金確認"
-     under_prodction: "制作中"
+     under_prodction: "製作中"
      preparing_ship: "発送準備中"
      sent: "発送済み"
   order_detail:
    making_status:
-    work_wrong: "制作不可"
-    work_wait: "制作待ち" 
-    work_middle: "制作中" 
-    work_completion: "制作完了"
+    work_wrong: "製作不可"
+    work_wait: "製作待ち" 
+    work_middle: "製作中" 
+    work_completion: "製作完了"
