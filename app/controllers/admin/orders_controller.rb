@@ -13,8 +13,8 @@ class Admin::OrdersController < ApplicationController
      @order.update(order_params)
      if @order.status == "payment_confirmation"
         @order_details.update_all(making_status: "work_wait")
-     redirect_to admin_order_path
      end
+     redirect_to admin_order_path
   end
   
   private

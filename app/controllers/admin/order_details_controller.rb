@@ -7,13 +7,16 @@ class Admin::OrderDetailsController < ApplicationController
      @order_details.update(order_details_params)
      if @order_details.making_status == "work_middle"
         @order.update(status: "under_prodction")
-     elsif @order_details.making_status == "work_completion"
+        @order.save
+        redirect_to admin_order_path(@order_details.order)
+     elsif @order.order_details.count == @order.order_details.where(making_status: "work_completion").count
            @order.update(status: "preparing_ship")
-     redirect_to admin_order_path(@order_details.order)
+           @order.save
+           redirect_to admin_order_path(@order_details.order)
      else
-       render "show"
+        redirect_to admin_order_path(@order_details.order)
      end
-  end
+   end
   
   private
   
