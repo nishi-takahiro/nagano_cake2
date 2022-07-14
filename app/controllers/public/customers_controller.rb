@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  
+  before_action :authenticate_customer!
   #マイページへのアクション
   def show
     @customer = current_customer

@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
+  
   def new #購入情報の入力画面で、宛先や情緒などを入力する。
     @order = Order.new
     @customer = current_customer
